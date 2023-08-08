@@ -1,1 +1,1 @@
-O código em questão recebe uma letra e verifca se a letra corresponde ASCII.
+O código em questão recebe uma letra e verifica se a letra corresponde a alguma vogal,a-e-i-o-u- ou A-E-I-O-U, em ASCII.
