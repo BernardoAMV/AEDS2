@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class indice{
+public class arrayInt{
 
     public static void main(String [] args){
 
