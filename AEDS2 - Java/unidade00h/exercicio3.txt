@@ -1,0 +1,1 @@
+Após terminar a chamada recursiva da função, o algoritmo continua o código, imprimindo i quando era 1 e quando era 2;
