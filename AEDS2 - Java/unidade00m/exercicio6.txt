@@ -1,0 +1,15 @@
+Um tipo Cliente é definido usando uma estrutura, que contém os atributos codigo (inteiro) e salario (double).
+
+Um objeto c do tipo Cliente é criado e o atributo codigo é atribuído o valor 5.
+
+Um ponteiro p para Cliente é declarado e memória é alocada dinamicamente para um objeto Cliente usando malloc.
+
+Através do ponteiro p, o atributo codigo do objeto alocado dinamicamente é definido como 6.
+
+Um ponteiro p2 para Cliente é declarado e apontado para o endereço do objeto c.
+
+Através do ponteiro p2, o atributo codigo do objeto c é definido como 7.
+
+Os valores dos atributos codigo são impressos para verificar as alterações.
+
+A memória alocada dinamicamente para o objeto apontado por p é liberada usando free.

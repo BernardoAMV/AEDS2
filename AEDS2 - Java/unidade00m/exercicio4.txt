@@ -1,0 +1,11 @@
+É criado um array de inteiros de 10 posições e um ponteiro;
+o ponteiro aponta para a primeira posição do array;
+a posição número 5 do array recebe o valor de 100;
+é impresso a posição 5 do array 2 vezes, pelo ponteiro criado e pelo array em si (que no caso a posição 5 tem o valor 100);
+o ponteiro pé alocado dinamicanente;
+é impresso a posição 7 do array(lixo) e a posição 7 do array alocado(100);
+    t1  t2    t3        t4    t5    t6   t7
+X1 LIXO 20    20
+X2 LIXO 20    15        1     15    6    26
+X3 LIXO Erro  X3 -> x2 
+

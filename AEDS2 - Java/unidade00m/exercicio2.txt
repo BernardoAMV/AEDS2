@@ -1,0 +1,30 @@
+Aqui está o processo passo a passo:
+
+Inicialização da matriz M:
+
+M[0][0] | M[0][1] | M[0][2] | M[1][0] | M[1][1] | M[1][2] | M[2][0] | M[2][1] | M[2][2]
+Após a inicialização do ponteiro p com M[0]:
+
+
+p -----> M[0][0]
+M[0][0] | M[0][1] | M[0][2] | M[1][0] | M[1][1] | M[1][2] | M[2][0] | M[2][1] | M[2][2]
+
+Início do loop para preenchimento com zeros:
+i = 0, *p (ou seja, M[0][0]) é definido como 0.0:
+
+
+p -----> M[0][0]
+M[0][0] (0.0) | M[0][1] | M[0][2] | M[1][0] | M[1][1] | M[1][2] | M[2][0] | M[2][1] | M[2][2]
+Incremento de p para apontar para M[0][1]:
+
+
+       p -----> M[0][1]
+M[0][0] (0.0) | M[0][1] | M[0][2] | M[1][0] | M[1][1] | M[1][2] | M[2][0] | M[2][1] | M[2][2]
+Repetição dos passos 3 e 4 para os demais elementos da matriz.
+
+Após o loop ser concluído, a matriz estará preenchida com zeros:
+
+
+
+M[0][0] (0.0) | M[0][1] (0.0) | M[0][2] (0.0) | M[1][0] (0.0) | M[1][1] (0.0) | M[1][2] (0.0) | M[2][0] (0.0) | M[2][1] (0.0) | M[2][2] (0.0)
+Isso representa como a matriz M está organizada na memória e como o ponteiro p é usado para percorrer e preencher os elementos com zeros.

@@ -1,0 +1,3 @@
+A função novaCelula(3) é chamada, criando uma nova célula com o elemento 3 e um ponteiro prox apontando para NULL.
+
+A variável tmp recebe o endereço dessa nova célula recém-criada.

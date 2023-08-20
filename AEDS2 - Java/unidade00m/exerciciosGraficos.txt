@@ -1,0 +1,109 @@
+e1 ---> ?
+
+e1 ---> (memória)
+
+e2 ---> (memória)(memória)(memória)
+
+
+         (memória)(memória)(memória)
+            ^        ^        ^
+            |        |        |
+            
+e2 ---> (memória)(memória)(memória)
+
+            
+Exercícios Gráficos
+em C:
+
+
+e1(memória)
+
+
+e2 ---> ?
+
+
+e2 ---> (memória)
+
+
+e2 ---> (memória)(memória)(memória)
+
+
+e3(memória)(memória)(memória)
+
+
+e4 ---> ?
+
+
+
+
+
+
+            ?        ?        ?
+            ^        ^        ^
+            |        |        |
+            
+e4 ---> (memória)(memória)(memória)
+
+
+
+
+        (memória)    ?    (memória)
+            ^        ^        ^
+            |        |        |
+            
+
+
+
+Exercícios Gráficos
+C++:
+
+
+e1(memória)
+
+
+e2 ---> ?
+
+
+e2 ---> (memória)
+
+
+e2 ---> (memória)(memória)(memória)
+
+
+
+e3(memória)(memória)(memória)
+
+
+e4 ---> ?
+
+
+
+
+
+
+            ?        ?        ?
+            ^        ^        ^
+            |        |        |
+
+
+            
+e4 ---> (memória)(memória)(memória)
+
+
+
+
+        (memória)    ?    (memória)
+            ^        ^        ^
+            |        |        |
+
+
+            
+
+
+
+
+
+
+
+
+

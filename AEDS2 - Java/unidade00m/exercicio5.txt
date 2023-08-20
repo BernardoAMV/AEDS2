@@ -1,0 +1,6 @@
+   t1  t2    t3        t4    t5    t6   t7
+X1 LIXO 20    20
+X2 LIXO 20    15        1     15    6    26
+X3 LIXO Erro  X3 -> x2 
+
+erro: o ponteiro não foi inicializado para apontar para uma posição valida no momento do código;
