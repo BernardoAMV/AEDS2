@@ -1,0 +1,6 @@
+
+O i-- significa pós decremento, ou seja, o i será decrementado após a iteração, o --i é o pré decremento, ele será decrementado antes da iteração;
+O programa mostra na tela:
+1 1 1 1
+o operador << desloca os bits de x uma posição à esquerda, o equivalente a multiplicar por 2 elevado ao numero de posições
+é a mesma coisa com o operador >>, so muda que agora o deslocamento é à direita, dividindo y por 2 elevado ao numeo de posições;

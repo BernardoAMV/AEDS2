@@ -1,0 +1,8 @@
+A saída do código é a seguinte:
+x1(0x7f9b7d402260)(0)(0x7ffecfd8db08) x2(4200688)(0x7ffecfd8db0c) x3(0x7f9b7d402268)(0)(0x7ffecfd8db10)
+x1(0x7f9b7d402260)(20)(0x7ffecfd8db08) x2(4200688)(0x7ffecfd8db0c) x3(0x7f9b7d402268)(0)(0x7ffecfd8db10)
+x1(0x7f9b7d402260)(20)(0x7ffecfd8db08) x2(20)(0x7ffecfd8db0c) x3(0x7f9b7d402268)(0)(0x7ffecfd8db10)
+x1(0x7f9b7d402260)(20)(0x7ffecfd8db08) x2(20)(0x7ffecfd8db0c) x3(0x7f9b7d402268)(400)(0x7ffecfd8db10)
+x1(0x7f9b7d402260)(20)(0x7ffecfd8db08) x2(20)(0x7ffecfd8db0c) x3(0x7ffecfd8db0c)(400)(0x7ffecfd8db0c)
+x1(0x7f9b7d402260)(20)(0x7ffecfd8db08) x2(15)(0x7ffecfd8db0c) x3(0x7ffecfd8db0c)(400)(0x7ffecfd8db0c)
+
