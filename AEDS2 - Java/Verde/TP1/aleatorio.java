@@ -4,6 +4,7 @@ public class aleatorio {
 
     public static void main(String[] args){
         Random gerador = new Random();
+        gerador.setSeed(4);
         String parada = "FIM";
         String frase= MyIO.readLine("");
         while(parada(frase, parada)){
@@ -14,8 +15,6 @@ public class aleatorio {
 
     }
     static void aleatoriza(String p, Random gerador){ // funcao para aleatorizar a string entrada
-
-        gerador.setSeed(4);
         char letraAleatoria1 = ((char)('a' + (Math.abs(gerador.nextInt() % 26))));
         char letraAleatoria2 = ((char)('a' + (Math.abs(gerador.nextInt() % 26))));
         char aleatoria;
