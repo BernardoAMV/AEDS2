@@ -32,7 +32,7 @@ public class Is {
         boolean resp = true;
         for(int i = 0; i < s.length() && resp; i++){
             resp = false;
-            for(int j = 0; j < vogal.length() && !resp; j++){
+            for(int j = 0; j < vogal.length() && !resp; j++){ // compara cada letra com a string vogal
                 if(s.charAt(i) == vogal.charAt(j))
                     resp = true;
             }
@@ -66,18 +66,25 @@ public class Is {
     }
     static boolean isReal(String s){
         boolean resp = true;
+        String numeros = "1234567890";
         int cont = 0;
-        if(!isInt(s)) {
-            for (int i = 0; i < s.length(); i++) {
-                if(s.charAt(i) == '.' || s.charAt(i) == ',')
-                    cont+=1;
+        for(int i = 0; i < s.length() && resp; i++) {
+            resp = false;
+            if(s.charAt(i) == ',' || s.charAt(i) == '.') {
+                cont += 1;
+                resp = true;
+            }
+            for(int j = 0; j < numeros.length() && !resp; j++){
+                if(s.charAt(i) == numeros.charAt(j))
+                    resp = true;
+
             }
         }
-        if(cont == 1)
-            return resp;
-        else
+        if(cont > 1)
             resp = false;
-        return resp;
+            return resp;
+
+
     }
     //metodo para identificar a parada, FIM
     static boolean parada(String palavra, String parada){
