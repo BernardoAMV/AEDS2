@@ -45,7 +45,7 @@ public class Is {
         for(int i = 0; i < s.length() && resp; i++){
             resp = false;
             s1 += s.charAt(i);
-            if (s.charAt(i) >= 'A' && s.charAt(i) <= 'z' && !isVogal(s1) && !resp)
+            if (s.charAt(i) >= 'A' && s.charAt(i) <= 'z' && !isVogal(s1) && !resp) //compara cada letra para ver se eh uma letra e se nao eh uma vogal
                 resp = true;
             s1 = "";
             }
@@ -56,7 +56,7 @@ public class Is {
         String numeros = "1234567890";
         for(int i = 0; i < s.length() && resp; i++) {
             resp = false;
-            for(int j = 0; j < numeros.length() && !resp; j++){
+            for(int j = 0; j < numeros.length() && !resp; j++){ //compara cada letra com a string numeros, a fim de determinar se ela eh composta apenas de numeros
                 if(s.charAt(i) == numeros.charAt(j))
                     resp = true;
             }
@@ -70,7 +70,7 @@ public class Is {
         int cont = 0;
         for(int i = 0; i < s.length() && resp; i++) {
             resp = false;
-            if(s.charAt(i) == ',' || s.charAt(i) == '.') {
+            if(s.charAt(i) == ',' || s.charAt(i) == '.') { // testa a string para saber se ela eh composta apenas de numeros e se ha apenas uma virgula
                 cont += 1;
                 resp = true;
             }
