@@ -20,7 +20,10 @@ public class arquivo {
         for(int i = 1; i <= n; i++){
             raf.seek((n - i) *8);
             numero = raf.readDouble();
+            if(numero % 1 != 0)
             MyIO.println(numero);
+            else
+                MyIO.println((int) numero);
         }
         raf.close();
 
