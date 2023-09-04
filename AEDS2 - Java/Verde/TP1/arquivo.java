@@ -18,7 +18,7 @@ public class arquivo {
         RandomAccessFile raf = new RandomAccessFile(arquivo, "rw");
         double numero;
         for(int i = 1; i <= n; i++){
-            raf.seek((n - i) *8);git
+            raf.seek((n - i) *8);
             numero = raf.readDouble();
             MyIO.println(numero);
         }
