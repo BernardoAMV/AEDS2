@@ -20,16 +20,21 @@ public class sequencia {
 
     static void espelho(int x, int y){
         int formula = ((y - x ) * 2) + 1;
+        String normal = "";
+        String espelho = "";
         for(int i = 0; i < formula; i++){
             if(x <= y) {
-                MyIO.print(x);
+                normal += x;
                 x++;
 
             }
-            if(x > y) {
-                MyIO.print(y);
-                y--;
-            }
         }
+        for(int i = 0; i < normal.length(); i++){
+            espelho += normal.charAt(normal.length() - i - 1);
+        }
+        MyIO.print(normal);
+        MyIO.print(espelho);
+
+        MyIO.print("\n");
     }
 }
