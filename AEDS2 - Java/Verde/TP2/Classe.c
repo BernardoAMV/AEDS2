@@ -89,7 +89,7 @@ void leArquivo(Jogador* jogadores[]){
 
     fgets(dados, 1000, fp);
 
-    for(int i = 0; i < 3922; i++){
+    for(int i = 0; i < 3922; i++){ // aqui eu coloquei todos os jogadores em um array de jogadores, em que cada iteracao eu instanciava um jogador novo em cada indice do array
         fgets(dados, 1000, fp);
         jogadores[i] = (Jogador *) malloc(sizeof(Jogador));
 
@@ -98,7 +98,7 @@ void leArquivo(Jogador* jogadores[]){
     free(dados);
 
 }
-bool parada(char *str){
+bool parada(char *str){ // aqui eh a funcao que verifica o criterio de parada
     if(str[0] == 'F' && str[1] == 'I' && str[2] == 'M')
         return false;
     else
@@ -116,8 +116,8 @@ int main(){
     int posicao;
     char frase [4];
     scanf("%s", frase);
-    while(parada(frase)){
-        posicao = atoi(frase);
+    while(parada(frase)){ // aqui eu tive que ler a entrada como uma string e utilizar do metodo atoi, para transformar a string em um inteiro ->
+        posicao = atoi(frase); // -> tive que fazer isso pois era o unico jeito de comparar numeros com o criterio de parada e utilizar como indice do array
         imprimir(jogadores[posicao]);
         scanf("%s", frase);
     }
