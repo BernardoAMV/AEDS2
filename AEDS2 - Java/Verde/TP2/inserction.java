@@ -122,7 +122,7 @@ public class inserction {
         Arq.close();
     }
     public static void leArquivo(Jogador[] jogadores){
-        Arq.openRead("/tmp/players.csv");
+        Arq.openRead("/temp/players.csv");
         Arq.readLine(); //remove a primeira linha
         for(int i = 0; i < 3922; i++){
             String data = Arq.readLine();
@@ -141,14 +141,32 @@ public class inserction {
     static void insercao(Jogador [] array, int n){
         int i, j;
         Jogador temp2 = new Jogador();
+
         for(i = 1; i < n; i++){
-            String temp = array[i].getNome();
+
+            int temp = array[i].getAnoNascimento();
             temp2 = array[i].clone();
+            boolean teste = true;
             j = i - 1;
-            while((j >= 0) && (array[j].getNome().compareTo(temp) > 0)){
-                array[j + 1] = array[j].clone();
-                cont++;
-                j--;
+
+            while((j >= 0) && (array[j].getAnoNascimento() >= temp) && teste){
+               if(array[j].getAnoNascimento() == temp){
+
+                    if (array[j].getNome().compareTo(temp2.getNome()) > 0) {
+                        array[j + 1] = array[j].clone();
+                        cont++;
+                        j--;
+
+                    }else{
+                        teste = false;
+                    }
+
+                }else{
+
+                    array[j + 1] = array[j].clone();
+                    cont++;
+                    j--;
+                }
             }
             array[j+1] = temp2;
         }
