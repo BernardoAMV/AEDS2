@@ -115,10 +115,11 @@ class Jogador {
 public class inserction {
     public static int cont;
     public static long tempo;
+    public static int contMov;
 
     public static void criarLog(){
-        Arq.openWrite("1449516_selecao.txt");
-        Arq.println("1449516\t" + tempo + "ms" + "\t" + cont);
+        Arq.openWrite("1449516_insercao.txt");
+        Arq.println("1449516\t" + tempo + "ms" + "\t" + cont + "comparacoes" + "\t" + contMov + "movimentacoes");
         Arq.close();
     }
     public static void leArquivo(Jogador[] jogadores){
@@ -145,29 +146,35 @@ public class inserction {
         for(i = 1; i < n; i++){
 
             int temp = array[i].getAnoNascimento();
+            contMov++;
+
             temp2 = array[i].clone();
+            contMov++;
+
             boolean teste = true;
             j = i - 1;
-
+            cont++;
             while((j >= 0) && (array[j].getAnoNascimento() >= temp) && teste){
-               if(array[j].getAnoNascimento() == temp){
+                cont++;
+                if(array[j].getAnoNascimento() == temp){
+                    cont++;
+                        if (array[j].getNome().compareTo(temp2.getNome()) > 0) {
+                            array[j + 1] = array[j].clone();
+                            cont++;
+                         j--;
 
-                    if (array[j].getNome().compareTo(temp2.getNome()) > 0) {
-                        array[j + 1] = array[j].clone();
-                        cont++;
-                        j--;
-
-                    }else{
-                        teste = false;
+                        }else{
+                            teste = false;
                     }
 
                 }else{
 
                     array[j + 1] = array[j].clone();
-                    cont++;
+                    contMov++;
                     j--;
                 }
             }
+            contMov++;
             array[j+1] = temp2;
         }
 
