@@ -122,7 +122,7 @@ public class inserction {
         Arq.close();
     }
     public static void leArquivo(Jogador[] jogadores){
-        Arq.openRead("/temp/players.csv");
+        Arq.openRead("/tmp/players.csv");
         Arq.readLine(); //remove a primeira linha
         for(int i = 0; i < 3922; i++){
             String data = Arq.readLine();
