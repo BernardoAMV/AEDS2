@@ -118,8 +118,8 @@ public class inserction {
     public static int contMov;
 
     public static void criarLog(){
-        Arq.openWrite("1449516_insercao.txt");
-        Arq.println("1449516\t" + tempo + "ms" + "\t" + cont + "comparacoes" + "\t" + contMov + "movimentacoes");
+        Arq.openWrite("806347_insercao.txt");
+        Arq.println("806347\t" + tempo + "ms" + "\t" + cont + "comparacoes" + "\t" + contMov + "movimentacoes");
         Arq.close();
     }
     public static void leArquivo(Jogador[] jogadores){

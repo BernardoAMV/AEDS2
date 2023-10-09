@@ -99,6 +99,7 @@ class Jogador {
         System.out.println("[" + id + " ## " + nome + " ## " + altura + " ## " + peso + " ## " +anoNascimento + " ## " + universidade + " ## " + cidadeNascimento + " ## " + estadoNascimento + ']');
     }
     public void ler(String jogador){
+
         String[] dados = jogador.split(",", 8);
         setId(dados[0]!="" ?Integer.parseInt(dados[0]): -1);
         setNome(dados[1]);
@@ -117,11 +118,11 @@ public class seq {
 
     public static void criarLog(){
         Arq.openWrite("matrícula_sequencial.txt");
-        Arq.println("1449516\t" + tempo + "ms" + "\t" + cont);
+        Arq.println("806347\t" + tempo + "ms" + "\t" + cont);
         Arq.close();
     }
     public static void leArquivo(Jogador[] jogadores){
-        Arq.openRead("players.csv");
+        Arq.openRead("/tmp/players.csv");
         Arq.readLine(); //remove a primeira linha
         for(int i = 0; i < 3922; i++){
             String data = Arq.readLine();
