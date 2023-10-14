@@ -1,1 +1,0 @@
-806347	4ms	463comparacoes	1859movimentacoes

@@ -1,1 +1,0 @@
-1449516	36ms	2302comparacoes	1386movimentacoes
