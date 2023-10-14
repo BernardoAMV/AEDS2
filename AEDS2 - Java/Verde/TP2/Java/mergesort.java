@@ -235,14 +235,12 @@ public class mergesort {
             realTam++;
             parada = MyIO.readString();
         }
-        sort(realTam, vetor);
         long inicio = System.currentTimeMillis();
+        sort(realTam, vetor);
+        long fim = System.currentTimeMillis();
         for(int i = 0; i < realTam; i++){
             vetor[i].imprimir();
         }
-
-        long fim = System.currentTimeMillis();
-        tempo = fim - inicio;
         criarLog();
     }
 
