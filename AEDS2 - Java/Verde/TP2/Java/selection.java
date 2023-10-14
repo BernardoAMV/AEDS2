@@ -174,13 +174,12 @@ public class selection {
             realTam++;
             parada = MyIO.readString();
         }
-        sort(vetor, realTam);
         long inicio = System.currentTimeMillis();
+        sort(vetor, realTam);
+        long fim = System.currentTimeMillis();
         for(int i = 0; i < realTam; i++){
             vetor[i].imprimir();
         }
-
-        long fim = System.currentTimeMillis();
         tempo = fim - inicio;
         criarLog();
     }
