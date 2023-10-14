@@ -112,17 +112,17 @@ class Jogador {
     }
 
 }
-public class selecaoParcial {
+public class quicksortParcial {
     public static int cont;
-    public static int contMov;
     public static long tempo;
+    public static int contMov;
 
-    public static void criarLog(){
-        Arq.openWrite("806347_selecaoParcial.txt");
+    /*public static void criarLog(){
+        Arq.openWrite("806347_quickS.txt");
         Arq.println("806347\t" + tempo + "ms" + "\t" + cont + "comparacoes" + "\t" + contMov + "movimentacoes");
         Arq.close();
-    }
-   /* public static void leArquivo(Jogador[] jogadores){
+    }*/
+    public static void leArquivo(Jogador[] jogadores){
         Arq.openRead("/tmp/players.csv");
         Arq.readLine(); //remove a primeira linha
         for(int i = 0; i < 3922; i++){
@@ -130,7 +130,7 @@ public class selecaoParcial {
             jogadores[i] = new Jogador();
             jogadores[i].ler(data);
         }
-    }*/
+    }
     //metodo para identificar a parada, FIM
     static boolean parada(String palavra, String parada){
         for(int i = 0; i < parada.length(); i++){
@@ -139,27 +139,46 @@ public class selecaoParcial {
         }
         return false;
     }
-    public static void sort(Jogador [] array, int n, int k) {
-        for (int i = 0; i < k; i++) {
-            int menor = i;
-            for (int j = (i + 1); j < n; j++){
-                if (array[menor].getNome().compareTo(array[j].getNome()) > 0){
-                    cont++;
-                    menor = j;
-                }
-            }
-            Jogador tmp = new Jogador();
-            tmp = array[menor].clone();
-            array[menor] = array[i].clone();
-            array[i] = tmp.clone();
-            contMov += 3;
+   public static void QuicksortParcial(Jogador [] array, int esq, int dir, int k){
+        Jogador pivo = new Jogador();
+        pivo = array[ (esq+dir) / 2].clone();
+        int i = esq, j = dir;
+        while(i <= j){
+            while ((array[i].getEstadoNascimento().compareTo(pivo.getEstadoNascimento())<0) || (array[i].getEstadoNascimento().compareTo(pivo.getEstadoNascimento())==0 && array[i].getNome().compareTo(pivo.getNome())<0))
+                i++;
+
+            while ((array[j].getEstadoNascimento().compareTo(pivo.getEstadoNascimento())>0) || (array[j].getEstadoNascimento().compareTo(pivo.getEstadoNascimento())==0 && array[j].getNome().compareTo(pivo.getNome())>0))
+                j--;
+
+            if(i <= j)
+            {swap(array, i, j); i++; j--; }
         }
+        if(esq < j)
+            QuicksortParcial(array,esq, j, k);
+        if(i < k && i < dir)
+            QuicksortParcial(array,i, dir, k);
     }
+    public static void swap(Jogador [] array, int i, int j){
+        Jogador temp = new Jogador();
+        temp = array[i].clone();
+        array[i] = array[j].clone();
+        array[j] = temp.clone();
+    }
+    public static boolean comparaJogadores(Jogador a,Jogador b){
+
+
+        cont++;
+        return ((a.getUniversidade().compareTo(b.getUniversidade()) < 0)||((a.getUniversidade().compareTo(b.getUniversidade())==0) && (a.getNome().compareTo(b.getNome()) < 0)));
+
+    }
+
+
 
     public static void main(String[] args){
         int n = 3922;
         int realTam = 0;
         cont = 0;
+        contMov = 0;
         Jogador[] jogadores = new Jogador[n];
         Jogador[] vetor = new Jogador[n];
 
@@ -175,12 +194,12 @@ public class selecaoParcial {
             parada = MyIO.readString();
         }
         long inicio = System.currentTimeMillis();
-        sort(vetor, realTam, 10);
+        QuicksortParcial(vetor,0 ,realTam - 1, 10);
         long fim = System.currentTimeMillis();
         for(int i = 0; i < 10; i++){
             vetor[i].imprimir();
         }
-        tempo = fim - inicio;
-        criarLog();
+        //criarLog();
     }
+
 }
