@@ -117,20 +117,20 @@ public class selecaoParcial {
     public static int contMov;
     public static long tempo;
 
-    public static void criarLog(){
-        Arq.openWrite("806347_selecaoParcial.txt");
-        Arq.println("806347\t" + tempo + "ms" + "\t" + cont + "comparacoes" + "\t" + contMov + "movimentacoes");
-        Arq.close();
-    }
-   /* public static void leArquivo(Jogador[] jogadores){
-        Arq.openRead("/tmp/players.csv");
-        Arq.readLine(); //remove a primeira linha
-        for(int i = 0; i < 3922; i++){
-            String data = Arq.readLine();
-            jogadores[i] = new Jogador();
-            jogadores[i].ler(data);
-        }
-    }*/
+    /* public static void criarLog(){
+         Arq.openWrite("806347_selecaoParcial.txt");
+         Arq.println("806347\t" + tempo + "ms" + "\t" + cont + "comparacoes" + "\t" + contMov + "movimentacoes");
+         Arq.close();
+     }*/
+     public static void leArquivo(Jogador[] jogadores){
+         Arq.openRead("/tmp/players.csv");
+         Arq.readLine(); //remove a primeira linha
+         for(int i = 0; i < 3922; i++){
+             String data = Arq.readLine();
+             jogadores[i] = new Jogador();
+             jogadores[i].ler(data);
+         }
+     }
     //metodo para identificar a parada, FIM
     static boolean parada(String palavra, String parada){
         for(int i = 0; i < parada.length(); i++){
