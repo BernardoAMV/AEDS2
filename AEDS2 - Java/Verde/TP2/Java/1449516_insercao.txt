@@ -1,0 +1,1 @@
+1449516	34ms	44225comparacoes	42403movimentacoes

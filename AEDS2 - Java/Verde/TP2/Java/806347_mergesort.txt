@@ -1,0 +1,1 @@
+806347	0ms	4118comparacoes	4118movimentacoes
