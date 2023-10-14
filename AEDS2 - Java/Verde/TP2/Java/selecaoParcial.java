@@ -181,6 +181,6 @@ public class selecaoParcial {
             vetor[i].imprimir();
         }
         tempo = fim - inicio;
-        criarLog();
+        //criarLog();
     }
 }
