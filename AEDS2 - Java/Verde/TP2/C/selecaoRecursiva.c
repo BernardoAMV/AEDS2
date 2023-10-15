@@ -96,65 +96,47 @@ void leArquivo(Jogador* jogadores[]){
     free(dados);
 
 }
-bool Binaria(char nome[], int n, Jogador *array[],int *comp)
-{
+int encontrarMenor(Jogador *array[], int n, int j, int *menor, int *comp) {
+    if (j < n) {
+    
 
-    bool resp = false;
-    int dir = n - 1;
-    int esq = 0;
-    int meio;
-
-    while (esq <= dir)
-    {
-        meio = (esq + dir) / 2;
- 
-        if (strcmp(nome, array[meio]->nome) == 0)
-        {
-        	*comp = *comp+1;
-
-            resp = true;
-            esq = n;
-        }
-        else if (strcmp(nome, array[meio]->nome) > 0)
-        {
-        	*comp = *comp+2;
-            esq = meio + 1;
-        }
-        else
-        {
-        	*comp = *comp+2;
-            dir = meio - 1;
-        }
+    (*comp)++; // Contagem de comparações
+    if (strcmp(array[*menor]->nome, array[j]->nome) > 0) {
+        (*menor) = j; // Atualiza o índice do menor elemento
     }
-    return resp;
+
+    (*menor) = encontrarMenor(array, n, j + 1, menor, comp);
+    }
+    return *menor;
 }
+void selecao(Jogador *array[], int n, int i, int *comp, int *mov) {
+    if (i < (n - 1)) {
+        
+    
 
-void insercao(Jogador **array, int n)
-{
-    Jogador* tmp;
-    for (int i = 1; i < n; i++)
-    {
-        tmp = (Jogador*)malloc(sizeof(Jogador));
+    int menor = i; // Inicializa o índice do menor elemento
+    encontrarMenor(array, n, i + 1, &menor, comp);
 
-        clone(array[i], tmp);
- 
-        int j = i - 1;
+        Jogador *tmp = (Jogador*)malloc(sizeof(Jogador));
 
-        while ((j >= 0) && (strcmp(array[j]->nome, tmp->nome) > 0))
-        {
- 
-            clone(array[j], array[j + 1]);
-            j--;
-        }
-        clone(tmp, array[j + 1]);
+        clone(array[menor], tmp);
+        clone(array[i], array[menor]);
+        clone(tmp, array[i]);
+
+        (*mov) += 3; // Contagem de movimentações
+
         free(tmp);
+
+        selecao(array, n, i + 1, comp, mov);
     }
 }
 
-void criarLog (double tempo, int cont){
+
+
+void criarLog (double tempo, int comp, int mov){
     FILE *fp = NULL;
-    fp = fopen("matricula_binaria.txt", "w");
-    fprintf(fp, "806347\t %.4fs \t %d", tempo, cont);
+    fp = fopen("806347_selecaoRecursiva.txt", "w");
+    fprintf(fp, "806347\t %.4fs \t %d comparacoes \t %d movimentacoes", tempo, comp, mov);
     fclose(fp);
 }
 bool parada(char *str){ // aqui eh a funcao que verifica o criterio de parada
@@ -163,10 +145,6 @@ bool parada(char *str){ // aqui eh a funcao que verifica o criterio de parada
     else
     return true;
 }
-
-
-
-
 
 int main(){
     int n = 3922;
@@ -179,7 +157,7 @@ int main(){
     char frase [500];
     scanf("%s", frase);
     Jogador* entrada[n];
-    int realTam = 0, cont = 0;
+    int realTam = 0, comp = 0, mov = 0;
 
     while(parada(frase)){ // aqui eu tive que ler a entrada como uma string e utilizar do metodo atoi, para transformar a string em um inteiro ->
 
@@ -192,23 +170,16 @@ int main(){
         scanf("%s", frase);
 
     }
+    clock_t inicio = clock();
+    selecao(entrada, realTam, 0, &comp, &mov);
+    clock_t fim = clock();
 
-    insercao(entrada, realTam);
-
-     scanf(" %[^\n]", frase);
-
-
-     clock_t inicio = clock();
-    while(parada(frase)){
-        if(Binaria(frase, realTam,entrada, &cont))
-            printf("SIM\n");
-        else
-            printf("NAO\n");
-         scanf(" %[^\n]", frase);
+    for(int i = 0; i < realTam; i++){
+        imprimir(entrada[i]);
     }
-     clock_t fim = clock();
+    
     double total = (double)(fim - inicio)/CLOCKS_PER_SEC;
-    criarLog(total,cont);
+    criarLog(total,comp, mov);
 
 }
 
