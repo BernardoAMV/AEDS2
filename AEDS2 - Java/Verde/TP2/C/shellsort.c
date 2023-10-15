@@ -79,7 +79,7 @@ void ler(char* str, Jogador* jogador){
 
 void leArquivo(Jogador* jogadores[]){
     FILE *fp = NULL;
-    fp = fopen("/tmp/playersAtualizado.csv", "r");
+    fp = fopen("players.csv", "r");
     char *dados = NULL;
 
     dados = (char*) malloc(sizeof(char) * 1000);
@@ -164,15 +164,15 @@ int main(){
         scanf("%s", frase);
 
     }
-    double inicio = clock();
+    clock_t inicio = clock();
     shellsort(entrada, realTam, &comp, &mov);
-    double fim = clock();
+    clock_t fim = clock();
 
     for(int i = 0; i < realTam; i++){
         imprimir(entrada[i]);
     }
     
-    double total = fim - inicio/(double)CLOCKS_PER_SEC;
+    double total = (double)(fim - inicio)/CLOCKS_PER_SEC;
     criarLog(total,comp, mov);
 
 }
