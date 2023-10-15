@@ -79,7 +79,7 @@ void ler(char* str, Jogador* jogador){
 
 void leArquivo(Jogador* jogadores[]){
     FILE *fp = NULL;
-    fp = fopen("players.csv", "r");
+    fp = fopen("/tmp/playersAtualizado.csv", "r");
     char *dados = NULL;
 
     dados = (char*) malloc(sizeof(char) * 1000);
