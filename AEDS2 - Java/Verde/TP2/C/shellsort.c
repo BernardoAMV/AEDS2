@@ -100,17 +100,17 @@ void insercaoPorCor(Jogador *array[], int n, int cor, int h, int *comp, int *mov
     for (int i = (h + cor); i < n; i+=h) {
         Jogador *tmp = (Jogador*) malloc(sizeof(Jogador)); 
         clone(array[i], tmp);
-        (*mov++);
+        (*mov)++;
         int j = i - h;
         (*comp)+=3;
         while ((j >= 0) && ((array[j] -> peso > tmp -> peso) || (array[j] -> peso == tmp -> peso &&(strcmp(array[j] -> nome, tmp -> nome) > 0 )))) {
             clone(array[j], array[j + h]);
-            (*mov++);
+            (*mov)++;
             j-=h;
             (*comp)+=3;
         }
         array[j + h] = tmp;
-        (*mov++);
+        (*mov)++;
     }
 }
 //=============================================================================
