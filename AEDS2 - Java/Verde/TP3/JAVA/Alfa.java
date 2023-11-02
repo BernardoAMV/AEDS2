@@ -310,7 +310,7 @@ class listaSequencial {
     /*public static void criarLog(){
         Arq.openWrite("806347_selecao.txt");
         Arq.println("806347\t" + tempo + "ms" + "\t" + cont + "comparacoes" + "\t" + contMov + "movimentacoes");
-        Arq.close();
+            Arq.close();
     }*/
     public static void leArquivo(Jogador[] jogadores) {
         Arq.openRead("/tmp/players.csv");
