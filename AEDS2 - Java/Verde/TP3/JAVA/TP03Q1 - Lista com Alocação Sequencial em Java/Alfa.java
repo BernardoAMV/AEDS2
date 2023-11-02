@@ -307,32 +307,6 @@ class listaSequencial {
         return retorno;
     }
 
-    /*public static void criarLog(){
-        Arq.openWrite("806347_selecao.txt");
-        Arq.println("806347\t" + tempo + "ms" + "\t" + cont + "comparacoes" + "\t" + contMov + "movimentacoes");
-            Arq.close();
-    }*/
-    public static void leArquivo(Jogador[] jogadores) {
-        Arq.openRead("/tmp/players.csv");
-        Arq.readLine(); //remove a primeira linha
-        for (int i = 0; i < 3922; i++) {
-            String data = Arq.readLine();
-            jogadores[i] = new Jogador();
-            jogadores[i].ler(data);
-        }
-    }
-
-    //metodo para identificar a parada, FIM
-    static boolean parada(String palavra, String parada) {
-        for (int i = 0; i < parada.length(); i++) {
-            if (palavra.charAt(i) != parada.charAt(i))
-                return true;
-        }
-        return false;
-    }
-
-
-
 }
 public class Alfa {
     private static listaSequencial lista;
@@ -374,7 +348,7 @@ public class Alfa {
        Arq.close();
    }*/
     public static void leArquivo(Jogador[] jogadores){
-        Arq.openRead("players.csv");
+        Arq.openRead("/tmp/players.csv");
         Arq.readLine(); //remove a primeira linha
         for(int i = 0; i < 3922; i++){
             String data = Arq.readLine();
