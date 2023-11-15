@@ -80,7 +80,7 @@ void ler(char* str, Jogador* jogador){
 
 void leArquivo(Jogador* jogadores[]){
     FILE *fp = NULL;
-    fp = fopen("players.csv", "r");
+    fp = fopen("/tmp/players.csv", "r");
     char *dados;
 
     dados = (char*) malloc(sizeof(char) * 1000);
@@ -114,12 +114,12 @@ int encontrarMenor(Jogador *array[], int n, int j, int *menor, int *comp) {
 
 
 
-void criarLog (double tempo, int comp, int mov){
+/*void criarLog (double tempo, int comp, int mov){
     FILE *fp = NULL;
     fp = fopen("806347_selecaoRecursiva.txt", "w");
     fprintf(fp, "806347\t %.4fs \t %d comparacoes \t %d movimentacoes", tempo, comp, mov);
     fclose(fp);
-}
+}*/
 bool parada(char *str){ // aqui eh a funcao que verifica o criterio de parada
     if(str[0] == 'F' && str[1] == 'I' && str[2] == 'M')
         return false;
