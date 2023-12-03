@@ -271,7 +271,7 @@ class Jogador {
         public static long tempo;
 
         public static void criarLog(){
-        Arq.openWrite("matrícula_arvoreBinaria.txt");
+        Arq.openWrite("806347_arvoreBinaria.txt");
         Arq.println("806347\t" + tempo + "ms" + "\t" + contador + "comparacoes");
         Arq.close();
     }
