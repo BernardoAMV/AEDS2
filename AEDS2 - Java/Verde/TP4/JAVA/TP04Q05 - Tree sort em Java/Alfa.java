@@ -290,12 +290,12 @@ public class Alfa{
 
 
     public static void criarLog(){
-        Arq.openWrite("matrícula_treesort.txt");
+        Arq.openWrite("806347_treesort.txt");
         Arq.println("806347\t" + tempo + "ms" + "\t" + contador + "comparacoes");
         Arq.close();
     }
     public static void leArquivo(){
-        Arq.openRead("players.csv");
+        Arq.openRead("/tmp/players.csv");
         Arq.readLine(); //remove a primeira linha
         for(int i = 0; i < 3922; i++){
             String data = Arq.readLine();
