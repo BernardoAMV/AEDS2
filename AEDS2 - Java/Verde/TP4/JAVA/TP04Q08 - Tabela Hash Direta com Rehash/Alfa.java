@@ -118,28 +118,28 @@ class Jogador {
         setEstadoNascimento(dados[7]);
     }
 }
- class Hash {
+class Hash {
     Jogador tabela[];
-    int m1, m2, m, reserva;
+    int m;
     final Jogador NULO = null;
 
     public Hash() {
-        this(21, 9);
+        this(25);
     }
 
-    public Hash(int m1, int m2) {
-        this.m1 = m1;
-        this.m2 = m2;
-        this.m = m1 + m2;
+    public Hash(int m) {
+        this.m = m;
         this.tabela = new Jogador[this.m];
-        for (int i = 0; i < m1; i++) {
+        for (int i = 0; i < m; i++) {
             tabela[i] = NULO;
         }
-        reserva = 0;
     }
 
     public int h(Jogador elemento) {
-        return elemento.getAltura() % m1;
+        return elemento.getAltura() % m;
+    }
+    public int reh(Jogador elemento){
+        return (elemento.getAltura() + 1) % m;
     }
 
     public boolean inserir(Jogador elemento) {
@@ -150,10 +150,12 @@ class Jogador {
             if (tabela[pos] == NULO) {
                 tabela[pos] = elemento;
                 resp = true;
-            } else if (reserva < m2) {
-                tabela[m1 + reserva] = elemento;
-                reserva++;
-                resp = true;
+            } else {
+                pos = reh(elemento);
+                if(tabela[pos] == NULO) {
+                    tabela[pos] = elemento;
+                    resp = true;
+                }
             }
         }
         return resp;
@@ -179,13 +181,13 @@ public class Alfa {
     public static long tempo;
 
     public static void criarLog() {
-        Arq.openWrite("806347_hashReserva.txt");
+        Arq.openWrite("806347_hashRehash.txt");
         Arq.println("806347\t" + tempo + "ms" + "\t" + contador + "comparacoes");
         Arq.close();
     }
 
     public static void leArquivo() {
-        Arq.openRead("/tmp/players.csv");
+        Arq.openRead("players.csv");
         Arq.readLine(); //remove a primeira linha
         for (int i = 0; i < 3922; i++) {
             String data = Arq.readLine();
@@ -205,7 +207,7 @@ public class Alfa {
 
     public static void main(String[] args) {
         array = new Jogador[3922];
-        tabela = new Hash(21, 9);
+        tabela = new Hash(21);
 
         leArquivo();
         String parada = MyIO.readString();
